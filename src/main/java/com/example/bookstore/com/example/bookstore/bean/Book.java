@@ -1,24 +1,35 @@
 package com.example.bookstore.com.example.bookstore.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private String author;
+    private String isbn;
+    private String title;
+    private String year;
 
-    private String title, author, year, isbn;
-    private Double price;
+    protected Book() {}
 
-    public Book(String title, String author, String year, String isbn, Double price) {
-        this.title = title;
+    public Book(String author, String isbn, String title, String year) {
         this.author = author;
-        this.year = year;
         this.isbn = isbn;
-        this.price = price;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
         this.title = title;
+        this.year = year;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getAuthor() {
@@ -29,14 +40,6 @@ public class Book {
         this.author = author;
     }
 
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
     public String getIsbn() {
         return isbn;
     }
@@ -45,22 +48,30 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public Double getPrice() {
-        return price;
+    public String getTitle() {
+        return title;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
     }
 
     @Override
     public String toString() {
         return "Book{" +
-                "title='" + title + '\'' +
+                "id=" + id +
                 ", author='" + author + '\'' +
-                ", year='" + year + '\'' +
                 ", isbn='" + isbn + '\'' +
-                ", price=" + price +
+                ", title='" + title + '\'' +
+                ", year='" + year + '\'' +
                 '}';
     }
 }
