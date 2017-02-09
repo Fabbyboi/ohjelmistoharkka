@@ -1,4 +1,4 @@
-package com.example.bookstore.com.example.bookstore.bean;
+package com.example.bookstore.bean;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +15,9 @@ public class Book {
     private String title;
     private String year;
 
-    protected Book() {}
+    public Book() {
+
+    }
 
     public Book(String author, String isbn, String title, String year) {
         this.author = author;
